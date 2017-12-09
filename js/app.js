@@ -1,5 +1,5 @@
 // Enemies our player must avoid
-var Enemy = function() {
+var Enemy = function(x, y, speed) {
     // Variables applied to each of our instances go here,
     // we've provided one for you to get started
     this.x = x || 0;
@@ -36,7 +36,7 @@ Enemy.prototype.repeat = function() {
 // This class requires an update(), render() and
 // a handleInput() method.
 
-var player = function() {
+var player1 = function() {
     this.x = 300;
     this.y = 280;
     this.hasWon = false;
@@ -44,18 +44,18 @@ var player = function() {
 }
 
 //update the player
-player.prototype.update = function(dt) {
+player1.prototype.update = function(dt) {
 
 }
 
 // Draw the player on the screen, required method for game
-player.prototype.render = function(){
+player1.prototype.render = function(){
   ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 }
 
 //checkWin function to protect the users reclick the button 
 //after they already click the cancel
-player.prototype.checkWin = fucntion() {
+player1.prototype.checkWin = fucntion() {
     if (this.y < 10 && !this.hasWon) {
         this.hasWon = true;
         setTimeout(function(){
@@ -66,14 +66,14 @@ player.prototype.checkWin = fucntion() {
     }
 }
 //the player back to the original position
-player.prototype.reset = function() {
+player1.prototype.reset = function() {
     this.x = 300;
     this.y = 280;
     this.hasWon = false;
 }
 
 //handling the keyboard control
-player.prototype.handleInput = function(key){
+player1.prototype.handleInput = function(key){
     //use map to mapping the keyboard
     var map = {left: handleLeft, right: handleRight, up: handleUp, down: handleDown};
     if (map[key]) {
@@ -109,7 +109,7 @@ player.prototype.handleInput = function(key){
 // Place the player object in a variable called player
 
 var allEnemies = [new Enemy(0, 60), new Enemy(0, 145, 200), new Enemy(0, 230, 300)];
-var player1 = new player();
+var player = new player1();
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
