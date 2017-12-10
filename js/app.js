@@ -21,7 +21,7 @@ Enemy.prototype.update = function(dt) {
     // make sure all the enemy on the screen
     if (this.x >550){
         this.x = -100;
-        this.speed = 100 + Math.floor(Math.random() * 512);
+        this.speed = 100 + Math.floor(Math.random() * 256);
     }
     //check the collison
     if (player.x < this.x + 60 &&
